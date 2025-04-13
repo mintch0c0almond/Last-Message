@@ -2,8 +2,13 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ✅ 모바일 최적화 -->
   <title>부자 카톡</title>
   <style>
+    *, *::before, *::after {
+      box-sizing: border-box; /* ✅ 패딩·보더 포함한 크기 계산 */
+    }
+
     body {
       font-family: 'Arial', sans-serif;
       background-color: #111;
@@ -13,17 +18,15 @@
       justify-content: center;
     }
 
-    /* 📱 스마트폰 프레임 */
     .phone-frame {
-      width: 420px;
-      max-width: 100%;
+      width: 100%;
+      max-width: 420px;
       background-color: #222;
       border-radius: 30px;
       overflow: hidden;
       box-shadow: 0 0 20px rgba(0,0,0,0.5);
     }
 
-    /* 🟨 상단 헤더 */
     .chat-header {
       background-color: #f5f5f5;
       color: #000;
@@ -42,6 +45,7 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
+      overflow-wrap: break-word; /* ✅ 단어 잘림 방지 */
     }
 
     .chat-item {
@@ -89,12 +93,9 @@
 </head>
 <body>
 
-  <!-- 📱 스마트폰 본체 -->
   <div class="phone-frame">
-    <!-- 🟨 상단 채팅방 제목 -->
     <div class="chat-header">사랑하는 울 아들</div>
 
-    <!-- 💬 대화 영역 -->
     <div class="chat-container" onclick="showNextMessage()">
       <div class="chat-item user"><div class="bubble">아빠</div><div class="timestamp">오전 8:57</div></div>
       <div class="chat-item user"><div class="bubble">사랑하는 막내 아들♥</div><div class="timestamp">오전 8:59</div></div>
@@ -121,7 +122,6 @@
       }
     }
 
-    // 첫 메시지 표시
     showNextMessage();
   </script>
 </body>
